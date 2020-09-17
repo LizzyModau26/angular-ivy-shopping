@@ -19,6 +19,7 @@ export class AppComponent  {
  newItem: any = {};
  updatedItem;
 
+  
  constructor()
  {
    this.myItems.push(
@@ -34,6 +35,7 @@ export class AppComponent  {
      this.newItem
    );
    this.newItem = {};
+   
  }
 
  EditItems(i){
@@ -47,9 +49,24 @@ export class AppComponent  {
       if (i == data){ this.myItems[i].Value = this.newItem.Value;}
     }
     this.IsForUpdate = false;
-    this.newItem = {};
+    this.newItem= {};
+    
   }
   DeleteItem(i){
     this.myItems.splice(i,1);
   }
+    url = ''; 
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result as string;
+
+      }
+    }
+  }
+ 
 }
