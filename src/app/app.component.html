@@ -25,11 +25,12 @@
 <div class="form-group">
 
   <form name="itemForm">
-    <input id="Value" name="Value" required [(ngModel)]="newItem.Value" minlength="3" maxlength="20" style="width: 50%;" placeholder="enter any item" class="form-control">
-    	Select file
-      <input type='file' name="Value2" required [(ngModel)]="newItem.Value "(change)="onSelectFile($event)">
-      <img [src]="url" height="200">
+      <h5>Select file</h5>
+      <input type='file' name="Value" required [(ngModel)]="newItem.Value "(change)="onSelectFile($event)" minlength="3" maxlength="20" style="width: 50%;">
+       <input id="Value" name="Value" required [(ngModel)]="newItem.Value" minlength="3" maxlength="20" style="width: 50%;" placeholder="enter any item" class="form-control">
+      
 		</form>
+    <img [src]="url" height="200">
   <br>
 
   <button type="submit" (click)="AddItem()" [disabled]="IsForUpdate == true" class="btn btn-default">Add Item</button>
